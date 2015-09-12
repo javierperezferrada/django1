@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'biblioteca',
+    'contactos',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -39,12 +40,16 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'django1.urls'
+TEMPLATE_DIRS = ( 
+    os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'), 
+) 
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(__file__), 'templates'), ],
-        #'DIRS': [],
+        #'DIRS': [os.path.join(os.path.dirname(__file__), 'templates'), ],
+        'DIRS':[],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -56,6 +61,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'django1.wsgi.application'
 
@@ -74,9 +80,9 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Chile/Continental'
 
 USE_I18N = True
 
@@ -89,5 +95,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+        os.path.join(BASE_DIR,'gyp/static'),
+    )
 MEDIA_ROOT = 'media/' 
 MEDIA_URL = 'http://localhost:8000/media/'
+
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'gypnetwork.info@gmail.com'
+EMAIL_HOST_PASSWORD = 'charchatel'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
