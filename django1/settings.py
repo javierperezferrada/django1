@@ -40,6 +40,9 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'django1.urls'
+MEDIA_ROOT = '/home/javier/django1/media/'
+MEDIA_URL = '/media/'
+
 TEMPLATE_DIRS = ( 
     os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'), 
 ) 
@@ -99,8 +102,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
         os.path.join(BASE_DIR,'gyp/static'),
     )
-MEDIA_ROOT = 'media/' 
-MEDIA_URL = 'http://localhost:8000/media/'
+
 
 
 EMAIL_HOST = 'smtp.gmail.com'
